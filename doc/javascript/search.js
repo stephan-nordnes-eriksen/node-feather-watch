@@ -1,0 +1,1 @@
+window.searchData = [{"t":"FeatherWatch","p":"class/FeatherWatch.html"},{"t":"src/index.coffee","p":"file/src/index.coffee.html"},{"t":"FeatherWatch#constructor","p":"class/FeatherWatch.html#constructor-dynamic"}]
