@@ -4,13 +4,11 @@ class WatcherWindows
 	@listenPaths = []
 	@callback = null
 	constructor: (directories, callback, verbose = false, silence_exceptions = false) ->
-		if WatcherWindows.WINDOWS_EDGE == null
-			WatcherWindows.WINDOWS_EDGE = require "edge"
-
-		console.log("Here WatcherWindows")
-		
-		
-		@windowsWatcher = new fileSystemWatcher(WatcherWindows.WINDOWS_EDGE)
+		if WatcherWindows.WINDOWS_EDGE?
+			@windowsWatcher = new fileSystemWatcher(WatcherWindows.WINDOWS_EDGE)
+		else
+			@windowsWatcher = new fileSystemWatcher()
+					
 		@setup_watcher(directories, callback, verbose, silence_exceptions)
 	
 	start: () ->
