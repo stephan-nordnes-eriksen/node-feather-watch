@@ -8,13 +8,13 @@
 [![devDependency Status](https://img.shields.io/david/dev/stephan-nordnes-eriksen/node-feather-watch.svg?style=flat)](https://david-dm.org/stephan-nordnes-eriksen/node-feather-watch#info=devDependencies)
 [![Build Status](https://img.shields.io/travis/stephan-nordnes-eriksen/node-feather-watch.svg?style=flat&branch=master)](https://travis-ci.org/stephan-nordnes-eriksen/node-feather-watch)
 
-[![NPM](https://nodei.co/npm/node-feather-watch.svg?style=flat)](https://npmjs.org/package/node-feather-watch)
+[![NPM](https://nodei.co/npm/nfeather-watch.svg?style=flat)](https://npmjs.org/package/feather-watch)
 
 A high performance cross-platform file system watcher utilizing native file system events on every platform. 
 
 ## Installation
 
-    npm install windows-watcher
+    npm install feather-watch
 
 ## Usage Example
 
