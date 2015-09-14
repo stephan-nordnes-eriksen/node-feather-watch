@@ -25,8 +25,8 @@ class WatcherLinux
 
 	setupSingleListener: (fileSystemPath, callback) ->
 		fse = fsevents(fileSystemPath)
-		fse.on
-		fse.on("change", callback_wrapper)
+		# fse.on
+		# fse.on("change", callback_wrapper)
 		fse.on("created", callback_wrapper)
 		fse.on("deleted", callback_wrapper)
 		fse.on("modified", callback_wrapper)
