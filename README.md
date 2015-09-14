@@ -10,9 +10,9 @@
 
 [![NPM](https://nodei.co/npm/node-feather-watch.svg?style=flat)](https://npmjs.org/package/node-feather-watch)
 
-An event aggregator for using the Publish/Subscribe pattern, also known as Pub/Sub. This version also have a Respond/Request feature.
+A high performance cross-platform file system watcher utilizing native file system events on every platform. 
 
-Used together these two features allow you to create truly decoupled code. 
+####Warning: Work in progress. Do not consider to be production ready.
 
 ## Installation
 
