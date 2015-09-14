@@ -31,8 +31,8 @@ watcher = new FW("/", function(event){
 });
 watcher.start();
 //...
-=> File /Users/You/Downloads/presentation.pdf was changed.
-"Native Event", {this: "depends", on: "the platform"}
+//=> File /Users/You/Downloads/presentation.pdf was changed.
+//=>"Native Event", {this: "depends", on: "the platform"}
 //...
 watcher.stop();
 
