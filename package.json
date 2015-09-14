@@ -1,6 +1,6 @@
 {
   "name": "feather-watch",
-  "version": "0.0.1-pre",
+  "version": "0.0.1-pre2",
   "description": "A high performance cross-platform file system watcher.",
   "keywords": [
     "fsevents",
