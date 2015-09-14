@@ -9,7 +9,7 @@ class WatcherWindows
 		else
 			@windowsWatcher = new fileSystemWatcher()
 					
-		@setup_watcher(directories, callback, verbose, silence_exceptions)
+		@setupWatcher(directories, callback, verbose, silence_exceptions)
 	
 	start: () ->
 		for listenPath in @listenPaths
@@ -20,7 +20,7 @@ class WatcherWindows
 			@windowsWatcher.unwatch(listenPath)
 		#@windowsWatcher.unwatchAll() #next version has this
 
-	setup_watcher: (directories, callback, verbose, silence_exceptions) ->
+	setupWatcher: (directories, callback, verbose, silence_exceptions) ->
 		callback_wrapper = (info) ->
 			if info[0] == "Rename"
 				callback({status: "moved-out", file: info[1], event: info})
@@ -29,11 +29,13 @@ class WatcherWindows
 				callback({status: info[0].toLowerCase(), file: info[1], event: info})
 
 
-		@callback = callback_wrapper
-
 		@listenPaths = []
-		for dir in directories
-			@listenPaths.push(dir)
+		@callback = callback_wrapper
+		if typeof directories == "string"
+			@listenPaths.push(directories)
+		else
+			for dir in directories
+				@listenPaths.push(dir)
 			# @windowsWatcher.watch(dir, @callback) #this will start the listener
 	@setEdge: (edge) ->
 		WatcherWindows.WINDOWS_EDGE = edge

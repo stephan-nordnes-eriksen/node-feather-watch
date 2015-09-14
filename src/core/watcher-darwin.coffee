@@ -4,7 +4,7 @@ class WatcherDarwin
 	@listerners = []
 	constructor: (directories, callback, verbose = false, silence_exceptions = false) ->
 		console.log("Here WatcherDarwin")
-		@setup_watcher(directories, callback, verbose, silence_exceptions)
+		@setupWatcher(directories, callback, verbose, silence_exceptions)
 	start: () ->
 		for watcher in @listerners
 			watcher.start()
@@ -13,21 +13,26 @@ class WatcherDarwin
 		for watcher in @listerners
 			watcher.stop()
 
-	setup_watcher: (directories, callback, verbose, silence_exceptions) ->
+	setupWatcher: (directories, callback, verbose, silence_exceptions) ->
 		callback_wrapper = (path, info) ->
 			callback({status: info["event"], file: path, event: info})
 		@listerners = []
-		for dir in directories
-			fse = fsevents(dir)
-			fse.on
-			fse.on("change", callback_wrapper)
-			fse.on("created", callback_wrapper)
-			fse.on("deleted", callback_wrapper)
-			fse.on("modified", callback_wrapper)
-			fse.on("moved-out", callback_wrapper)
-			fse.on("moved-in", callback_wrapper)
-			@listerners.push(fse)
+		if typeof directories == "string"
+			@listerners.push(setupSingleListener(directories, callback_wrapper))
+		else
+			for dir in directories
+				@listerners.push(setupSingleListener(dir, callback_wrapper))
 
+	setupSingleListener: (fileSystemPath, callback) ->
+		fse = fsevents(fileSystemPath)
+		fse.on
+		fse.on("change", callback_wrapper)
+		fse.on("created", callback_wrapper)
+		fse.on("deleted", callback_wrapper)
+		fse.on("modified", callback_wrapper)
+		fse.on("moved-out", callback_wrapper)
+		fse.on("moved-in", callback_wrapper)
+		return fse
 
 
 # fsevent - RAW Event as emitted by OS-X
