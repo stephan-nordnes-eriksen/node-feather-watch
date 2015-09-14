@@ -4,13 +4,13 @@ class WatcherWindows
 	@listenPaths = []
 	@callback = null
 	constructor: (directories, callback, verbose = false, silence_exceptions = false) ->
-		if FeatherWatch.WINDOWS_EDGE == null
-			FeatherWatch.WINDOWS_EDGE = require "edge"
+		if WatcherWindows.WINDOWS_EDGE == null
+			WatcherWindows.WINDOWS_EDGE = require "edge"
 
 		console.log("Here WatcherWindows")
 		
 		
-		@windowsWatcher = new fileSystemWatcher(FeatherWatch.WINDOWS_EDGE)
+		@windowsWatcher = new fileSystemWatcher(WatcherWindows.WINDOWS_EDGE)
 		@setup_watcher(directories, callback, verbose, silence_exceptions)
 	
 	start: () ->
@@ -37,5 +37,7 @@ class WatcherWindows
 		for dir in directories
 			@listenPaths.push(dir)
 			# @windowsWatcher.watch(dir, @callback) #this will start the listener
+	@setEdge: (edge) ->
+		WatcherWindows.WINDOWS_EDGE = edge
 			
 module.exports = WatcherWindows

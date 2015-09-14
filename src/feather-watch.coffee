@@ -31,6 +31,6 @@ class FeatherWatch
 
 	@setWindowsEdge: (edge) ->
 		if process.platform == "win32"
-			FeatherWatch.WINDOWS_EDGE = edge
+			SpecificWatcher.setEdge(edge)
 
 module.exports = FeatherWatch
