@@ -12,8 +12,6 @@
 
 A high performance cross-platform file system watcher utilizing native file system events on every platform. 
 
-####Warning: Work in progress. Do not consider to be production ready.
-
 ## Installation
 
     npm install windows-watcher
