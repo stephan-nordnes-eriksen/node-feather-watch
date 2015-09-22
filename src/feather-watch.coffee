@@ -29,6 +29,15 @@ class FeatherWatch
 		console.log("Constructor")
 		return new SpecificWatcher(directories, callback, verbose, silence_exceptions)
 
+	# Windows only. Set windows edge.js in case your environment does not support the standard "edge" package. Eg. "electron-edge2" for running in electron
+	# Must be done before you initialize
+	#
+	# @param edge [Object] An edge.js object. The default is require("edge"). Change to "electron-edge2" for electron compatibility.
+	#
+	# @example Set edge to "electron-edge2"
+	# FW = require("feather-watch");
+	# FW.setWindowsEdge(require("electron-edge2"));
+	# watcher = new FW("C:\\", callback);
 	@setWindowsEdge: (edge) ->
 		if process.platform == "win32"
 			SpecificWatcher.setEdge(edge)
