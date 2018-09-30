@@ -3,7 +3,6 @@ fsevents = require("fsevents") if process.platform == "darwin"
 class WatcherDarwin
 	@listerners = []
 	constructor: (directories, callback, verbose = false, silence_exceptions = false) ->
-		console.log("Here WatcherDarwin")
 		@setupWatcher(directories, callback, verbose, silence_exceptions)
 	start: () ->
 		for watcher in @listerners

@@ -3,7 +3,6 @@ Inotify = require("inotify").Inotify if process.platform == "linux"
 class WatcherLinux
 	@fsevents = []
 	constructor: (directories, callback, verbose = false, silence_exceptions = false) ->
-		console.log("Here WatcherDarwin")
 		@setupWatcher(directories, callback, verbose, silence_exceptions)
 	start: () ->
 		for watcher in @fsevents
